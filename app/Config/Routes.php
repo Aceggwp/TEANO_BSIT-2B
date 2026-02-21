@@ -21,5 +21,21 @@ $routes->post('users/update', 'Users::update');
 $routes->delete('users/delete/(:num)', 'Users::delete/$1');
 $routes->post('users/fetchRecords', 'Users::fetchRecords');
 
+// Student routes
+$routes->get('/student', 'Student::index');
+$routes->post('student/save', 'Student::save');
+$routes->get('student/edit/(:segment)', 'Student::edit/$1');
+$routes->post('student/update', 'Student::update');
+$routes->delete('student/delete/(:num)', 'Student::delete/$1');
+$routes->post('student/fetchRecords', 'Student::fetchRecords');
+
+//Parent routes
+$routes->get('/parent', 'Parents::index');
+$routes->post('parent/save', 'Parents::save');
+$routes->get('parent/edit/(:segment)', 'Parents::edit/$1');
+$routes->post('parent/update', 'Parents::update');
+$routes->delete('parent/delete/(:num)', 'Parents::delete/$1');
+$routes->post('parent/fetchRecords', 'Parents::fetchRecords');
+
 // Logs routes for admin
 $routes->get('/log', 'Logs::log');
