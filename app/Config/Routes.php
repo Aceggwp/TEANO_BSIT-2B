@@ -37,5 +37,12 @@ $routes->post('parent/update', 'Parents::update');
 $routes->delete('parent/delete/(:num)', 'Parents::delete/$1');
 $routes->post('parent/fetchRecords', 'Parents::fetchRecords');
 
+$routes->get('/parent', 'ParentTable::index');
+$routes->post('parent/save', 'ParentTable::save');
+$routes->get('parent/edit/(:segment)', 'ParentTable::edit/$1');
+$routes->post('parent/update', 'ParentTable::update');
+$routes->delete('parent/delete/(:num)', 'ParentTable::delete/$1');
+$routes->post('parent/fetchRecords', 'ParentTable::fetchRecords');
+
 // Logs routes for admin
 $routes->get('/log', 'Logs::log');
