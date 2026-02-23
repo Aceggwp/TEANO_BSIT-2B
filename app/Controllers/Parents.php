@@ -40,6 +40,37 @@ class Parents extends Controller
         }
     }
 
+    
+    public function update(){
+        $model = new ParentModel();
+        $logModel = new LogModel();
+        $userId = $this->request->getPost('id');
+        $name = $this->request->getPost('name');
+        $bday = $this->request->getPost('bday');
+        $address = $this->request->getPost('address');
+
+        $userData = [
+            'name'       => $name,
+            'bday'       => $bday,
+            'address'    => $address
+        ];
+
+        $updated = $model->update($userId, $userData);
+
+        if ($updated) {
+            $logModel->addLog('New User has been apdated: ' . $name, 'UPDATED');
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'User updated successfully.'
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Error updating user.'
+            ]);
+        }
+    }
+
     public function fetchRecords() {
         $request = service('request');
         $model = new ParentModel();
